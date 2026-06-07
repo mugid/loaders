@@ -3,12 +3,14 @@ import { easedLoopProgress } from "@/lib/eased-progress"
 
 const WIDTH = 80
 const HEIGHT = 40
-const AMPLITUDE = 9
+const AMPLITUDE = 14
 const SAMPLES = 64
 const PERIOD_MS = 2000
 const CYCLES = 2
+const DECAY = 0.35
+const FREQ = 5
 
-function buildWavePath(fn: "sin" | "cos", progress: number) {
+function buildDampedSinePath(progress: number) {
   if (progress < 0.001) return ""
 
   const midY = HEIGHT / 2
@@ -18,14 +20,15 @@ function buildWavePath(fn: "sin" | "cos", progress: number) {
   for (let i = 0; i <= steps; i++) {
     const x = (i / SAMPLES) * WIDTH
     const t = (i / SAMPLES) * CYCLES * 2 * Math.PI
-    const y = midY + (fn === "sin" ? Math.sin(t) : Math.cos(t)) * AMPLITUDE
+    const envelope = Math.exp(-DECAY * (i / SAMPLES) * CYCLES * 2 * Math.PI)
+    const y = midY + Math.sin(FREQ * t) * AMPLITUDE * envelope
     d += `${i === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)} `
   }
 
   return d.trim()
 }
 
-function TrigWaveLine({ fn }: { fn: "sin" | "cos" }) {
+export function DampedSineLoader() {
   const time = useTime()
   const shouldReduceMotion = useReducedMotion()
 
@@ -33,7 +36,7 @@ function TrigWaveLine({ fn }: { fn: "sin" | "cos" }) {
     const progress = shouldReduceMotion
       ? 0
       : easedLoopProgress(time.get(), PERIOD_MS)
-    return buildWavePath(fn, progress)
+    return buildDampedSinePath(progress)
   })
 
   return (
@@ -56,12 +59,4 @@ function TrigWaveLine({ fn }: { fn: "sin" | "cos" }) {
       </svg>
     </div>
   )
-}
-
-export function SinWaveLine() {
-  return <TrigWaveLine fn="sin" />
-}
-
-export function CosWaveLine() {
-  return <TrigWaveLine fn="cos" />
 }
