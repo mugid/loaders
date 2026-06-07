@@ -1,4 +1,5 @@
 import { motion, useReducedMotion, useTime, useTransform } from "motion/react"
+import { easedLoopProgress } from "@/lib/eased-progress"
 
 const SCALE = 14
 const SIZE = 96
@@ -36,7 +37,7 @@ export function Polar2CosLoader() {
   const shouldReduceMotion = useReducedMotion()
 
   const progress = useTransform(() =>
-    shouldReduceMotion ? 0 : (time.get() % PERIOD_MS) / PERIOD_MS,
+    shouldReduceMotion ? 0 : easedLoopProgress(time.get(), PERIOD_MS),
   )
 
   const pathD = useTransform(() => buildPolarPath(progress.get() * FULL_SWEEP))

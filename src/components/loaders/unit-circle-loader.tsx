@@ -1,4 +1,5 @@
 import { motion, useReducedMotion, useTime, useTransform } from "motion/react"
+import { easedLoopProgress } from "@/lib/eased-progress"
 
 const R = 28
 const SIZE = 96
@@ -35,10 +36,10 @@ export function UnitCircleLoader() {
   const pathD = useTransform(() => {
     const sweep = shouldReduceMotion
       ? 0
-      : ((time.get() % GROWTH_PERIOD_MS) / GROWTH_PERIOD_MS) * 2 * Math.PI
+      : easedLoopProgress(time.get(), GROWTH_PERIOD_MS) * 2 * Math.PI
     const rotation = shouldReduceMotion
       ? 0
-      : (time.get() / ROTATION_PERIOD_MS) * 2 * Math.PI
+      : easedLoopProgress(time.get(), ROTATION_PERIOD_MS) * 2 * Math.PI
     return buildArcPath(sweep, rotation)
   })
 

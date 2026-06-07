@@ -1,4 +1,5 @@
 import { motion, useReducedMotion, useTime, useTransform } from "motion/react"
+import { easedLoopProgress } from "@/lib/eased-progress"
 
 const WIDTH = 80
 const HEIGHT = 40
@@ -28,7 +29,7 @@ function TrigWaveLine({ fn }: { fn: "sin" | "cos" }) {
   const pathD = useTransform(() => {
     const phase = shouldReduceMotion
       ? 0
-      : (time.get() / PERIOD_MS) * 2 * Math.PI
+      : easedLoopProgress(time.get(), PERIOD_MS) * 2 * Math.PI
     return buildWavePath(fn, phase)
   })
 
