@@ -1,6 +1,6 @@
 import type { ComponentType } from "react"
-import { SinWaveBars } from "./sin-wave-bars"
-import { CosWaveBars } from "./cos-wave-bars"
+import { SinWaveLine } from "./trig-wave-line"
+import { CosWaveLine } from "./trig-wave-line"
 import { UnitCircleLoader } from "./unit-circle-loader"
 
 export type LoaderEntry = {
@@ -16,21 +16,21 @@ export const loaders: LoaderEntry[] = [
     id: "sin-wave",
     name: "Sine Wave",
     formula: "sin(x)",
-    description: "Bars rise and fall along the sine curve, each phase-shifted.",
-    Component: SinWaveBars,
+    description: "A line tracing the sine curve as it shifts through time.",
+    Component: SinWaveLine,
   },
   {
     id: "cos-wave",
     name: "Cosine Wave",
     formula: "cos(x)",
-    description: "The same wave shifted by π/2 — cosine leads sine.",
-    Component: CosWaveBars,
+    description: "A line tracing the cosine curve, phase-shifted from sine.",
+    Component: CosWaveLine,
   },
   {
     id: "unit-circle",
     name: "Unit Circle",
     formula: "(cos t, sin t)",
-    description: "A point orbiting the origin, parameterized by sine and cosine.",
+    description: "A curvy arc growing from 0 to the full circumference 2πr.",
     Component: UnitCircleLoader,
   },
 ]
