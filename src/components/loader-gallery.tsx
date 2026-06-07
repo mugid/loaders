@@ -12,7 +12,7 @@ export function LoaderGallery() {
   return (
     <main className="mx-auto min-h-svh w-full max-w-3xl px-6 py-16">
       <header className="mb-12 text-left">
-        <h1 className="text-2xl font-semibold tracking-tight">
+        <h1 className="text-md font-semibold tracking-tight">
           Math Loaders
         </h1>
         <p className="text-md text-muted-foreground">
