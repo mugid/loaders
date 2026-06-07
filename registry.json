@@ -1,0 +1,231 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "math-loaders",
+  "homepage": "https://github.com/mugid/loaders",
+  "items": [
+    {
+      "name": "math-loader",
+      "type": "registry:ui",
+      "title": "Math Loader",
+      "description": "Base SVG path loader primitive powered by Motion.",
+      "dependencies": ["motion", "clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "src/components/ui/math-loader.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/hooks/use-loader-progress.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "src/lib/eased-progress.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "src/lib/build-path.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "trig-wave-loader",
+      "type": "registry:component",
+      "title": "Trig Wave Loader",
+      "description": "Sine and cosine curves drawn progressively from left to right.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/trig-wave-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "unit-circle-loader",
+      "type": "registry:component",
+      "title": "Unit Circle Loader",
+      "description": "A curvy arc growing from 0 to the full circumference 2πr.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/unit-circle-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "polar-2cos-loader",
+      "type": "registry:component",
+      "title": "Rose Curve Loader",
+      "description": "A rose curve with 3 petals, drawn from zero to the full flower.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/polar-2cos-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "lissajous-loader",
+      "type": "registry:component",
+      "title": "Lissajous Loader",
+      "description": "A Lissajous figure traced by two sine waves at different frequencies.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/lissajous-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spiral-loader",
+      "type": "registry:component",
+      "title": "Spiral Loader",
+      "description": "An Archimedean spiral winding outward from the center.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/spiral-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "cardioid-loader",
+      "type": "registry:component",
+      "title": "Cardioid Loader",
+      "description": "A heart-shaped cardioid drawn in polar coordinates.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/cardioid-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "astroid-loader",
+      "type": "registry:component",
+      "title": "Astroid Loader",
+      "description": "A four-cusped hypocycloid traced parametrically.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/astroid-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "lemniscate-loader",
+      "type": "registry:component",
+      "title": "Lemniscate Loader",
+      "description": "A figure-eight curve from the lemniscate of Bernoulli.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/lemniscate-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "log-spiral-loader",
+      "type": "registry:component",
+      "title": "Log Spiral Loader",
+      "description": "A logarithmic spiral that grows exponentially with angle.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/log-spiral-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "damped-sine-loader",
+      "type": "registry:component",
+      "title": "Damped Sine Loader",
+      "description": "A damped oscillation drawn progressively from left to right.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/damped-sine-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "ellipse-loader",
+      "type": "registry:component",
+      "title": "Ellipse Loader",
+      "description": "An ellipse traced parametrically from zero to a full revolution.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/ellipse-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "fermat-spiral-loader",
+      "type": "registry:component",
+      "title": "Fermat Spiral Loader",
+      "description": "A parabolic spiral where radius grows with the square root of angle.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/fermat-spiral-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "even-rose-loader",
+      "type": "registry:component",
+      "title": "Even Rose Loader",
+      "description": "An eight-petaled rose from an even-frequency cosine.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/even-rose-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "butterfly-loader",
+      "type": "registry:component",
+      "title": "Butterfly Loader",
+      "description": "The butterfly curve traced in polar coordinates.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/butterfly-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "epicycloid-loader",
+      "type": "registry:component",
+      "title": "Epicycloid Loader",
+      "description": "A spirograph curve traced by a circle rolling around another.",
+      "registryDependencies": ["math-loader"],
+      "files": [
+        {
+          "path": "src/components/loaders/epicycloid-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

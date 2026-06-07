@@ -1,22 +1,24 @@
 import { useState } from "react"
 import { Check, Copy } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { loaders } from "@/components/loaders/registry"
+import { getShadcnAddCommand, loaders } from "@/components/loaders/registry"
 import { cn } from "@/lib/utils"
 
 function LoaderTile({
   name,
   formula,
+  shadcnItem,
   Component,
 }: {
   name: string
   formula: string
+  shadcnItem: string
   Component: (typeof loaders)[number]["Component"]
 }) {
   const [copied, setCopied] = useState(false)
 
   async function handleCopy() {
-    await navigator.clipboard.writeText(formula)
+    await navigator.clipboard.writeText(getShadcnAddCommand(shadcnItem))
     setCopied(true)
     window.setTimeout(() => setCopied(false), 1500)
   }
@@ -28,7 +30,7 @@ function LoaderTile({
         <button
           type="button"
           onClick={handleCopy}
-          aria-label={copied ? "Copied formula" : "Copy formula"}
+          aria-label={copied ? "Copied install command" : "Copy install command"}
           className={cn(
             "inline-flex size-7 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors",
             "hover:bg-muted hover:text-foreground",
