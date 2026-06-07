@@ -1,20 +1,23 @@
 import type { ComponentType } from "react"
-import { SinWaveLine } from "./trig-wave-line"
-import { CosWaveLine } from "./trig-wave-line"
-import { UnitCircleLoader } from "./unit-circle-loader"
-import { Polar2CosLoader } from "./polar-2cos-loader"
-import { LissajousLoader } from "./lissajous-loader"
-import { SpiralLoader } from "./spiral-loader"
-import { CardioidLoader } from "./cardioid-loader"
-import { AstroidLoader } from "./astroid-loader"
-import { LemniscateLoader } from "./lemniscate-loader"
-import { LogSpiralLoader } from "./log-spiral-loader"
-import { DampedSineLoader } from "./damped-sine-loader"
-import { EllipseLoader } from "./ellipse-loader"
-import { FermatSpiralLoader } from "./fermat-spiral-loader"
-import { EvenRoseLoader } from "./even-rose-loader"
-import { ButterflyLoader } from "./butterfly-loader"
-import { EpicycloidLoader } from "./epicycloid-loader"
+
+import {
+  SinWaveLoader,
+  CosWaveLoader,
+  UnitCircleLoader,
+  Polar2CosLoader,
+  LissajousLoader,
+  SpiralLoader,
+  CardioidLoader,
+  AstroidLoader,
+  LemniscateLoader,
+  LogSpiralLoader,
+  DampedSineLoader,
+  EllipseLoader,
+  FermatSpiralLoader,
+  EvenRoseLoader,
+  ButterflyLoader,
+  EpicycloidLoader,
+} from "./index"
 
 export type LoaderEntry = {
   id: string
@@ -30,14 +33,14 @@ export const loaders: LoaderEntry[] = [
     name: "Sine Wave",
     formula: "sin(x)",
     description: "A sine curve drawn progressively from left to right.",
-    Component: SinWaveLine,
+    Component: SinWaveLoader,
   },
   {
     id: "cos-wave",
     name: "Cosine Wave",
     formula: "cos(x)",
     description: "A cosine curve drawn progressively from left to right.",
-    Component: CosWaveLine,
+    Component: CosWaveLoader,
   },
   {
     id: "unit-circle",
