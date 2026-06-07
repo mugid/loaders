@@ -85,7 +85,7 @@ export function LoaderGallery() {
       <header className="mb-12 text-left">
         <div className="flex items-center justify-between gap-4">
           <h1 className="text-md font-semibold tracking-tight">
-            loaders. the fun way.
+            loader. the math way.
           </h1>
           <div className="flex items-center gap-3">
             <a
@@ -121,7 +121,7 @@ export function LoaderGallery() {
           </div>
         </div>
         <p className="text-md text-muted-foreground">
-          math is everywhere, apparently.
+          copy any loader to get the shadcn install command.
         </p>
       </header>
 
