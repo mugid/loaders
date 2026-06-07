@@ -2,6 +2,7 @@ import type { ComponentType } from "react"
 import { SinWaveLine } from "./trig-wave-line"
 import { CosWaveLine } from "./trig-wave-line"
 import { UnitCircleLoader } from "./unit-circle-loader"
+import { Polar2CosLoader } from "./polar-2cos-loader"
 
 export type LoaderEntry = {
   id: string
@@ -32,5 +33,12 @@ export const loaders: LoaderEntry[] = [
     formula: "(cos t, sin t)",
     description: "A curvy arc growing from 0 to the full circumference 2πr.",
     Component: UnitCircleLoader,
+  },
+  {
+    id: "polar-2cos",
+    name: "Rose Curve",
+    formula: "r = 2cos(3θ)",
+    description: "A rose curve with 3 petals, drawn from zero to the full flower.",
+    Component: Polar2CosLoader,
   },
 ]

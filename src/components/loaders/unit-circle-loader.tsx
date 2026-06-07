@@ -3,22 +3,24 @@ import { motion, useReducedMotion, useTime, useTransform } from "motion/react"
 const R = 28
 const SIZE = 96
 const CENTER = SIZE / 2
-const PERIOD_MS = 2000
-const START_ANGLE = -Math.PI / 2
+const GROWTH_PERIOD_MS = 2000
+const ROTATION_PERIOD_MS = 3000
+const BASE_ANGLE = -Math.PI / 2
 
-function buildArcPath(sweepRadians: number): string {
+function buildArcPath(sweepRadians: number, rotation: number): string {
   if (sweepRadians < 0.001) return ""
 
-  const x0 = CENTER + R * Math.cos(START_ANGLE)
-  const y0 = CENTER + R * Math.sin(START_ANGLE)
+  const startAngle = BASE_ANGLE + rotation
+  const x0 = CENTER + R * Math.cos(startAngle)
+  const y0 = CENTER + R * Math.sin(startAngle)
 
   if (sweepRadians >= 2 * Math.PI - 0.001) {
-    const xMid = CENTER + R * Math.cos(START_ANGLE + Math.PI)
-    const yMid = CENTER + R * Math.sin(START_ANGLE + Math.PI)
+    const xMid = CENTER + R * Math.cos(startAngle + Math.PI)
+    const yMid = CENTER + R * Math.sin(startAngle + Math.PI)
     return `M ${x0} ${y0} A ${R} ${R} 0 1 1 ${xMid} ${yMid} A ${R} ${R} 0 1 1 ${x0} ${y0}`
   }
 
-  const endAngle = START_ANGLE + sweepRadians
+  const endAngle = startAngle + sweepRadians
   const x1 = CENTER + R * Math.cos(endAngle)
   const y1 = CENTER + R * Math.sin(endAngle)
   const largeArc = sweepRadians > Math.PI ? 1 : 0
@@ -33,8 +35,11 @@ export function UnitCircleLoader() {
   const pathD = useTransform(() => {
     const sweep = shouldReduceMotion
       ? 0
-      : ((time.get() % PERIOD_MS) / PERIOD_MS) * 2 * Math.PI
-    return buildArcPath(sweep)
+      : ((time.get() % GROWTH_PERIOD_MS) / GROWTH_PERIOD_MS) * 2 * Math.PI
+    const rotation = shouldReduceMotion
+      ? 0
+      : (time.get() / ROTATION_PERIOD_MS) * 2 * Math.PI
+    return buildArcPath(sweep, rotation)
   })
 
   return (
